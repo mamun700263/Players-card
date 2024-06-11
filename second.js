@@ -117,28 +117,6 @@ function searcher(){
 
 
 
-// function show_details(id) {
-//     fetch(`https://www.thesportsdb.com/api/v1/json/3/lookuphonours.php?id=${id}`)
-//     .then(res =>res.json())
-//     .then(player => {
-//         const modalTitle = document.getElementById("exampleModalLabel");
-//     const modalBody = document.querySelector(".modal-body");
-
-//     modalTitle.textContent = player.strPlayer;
-//     modalBody.innerHTML = `
-//         <p> ${player.strSport}</p>
-//         <p> ${player.strPlayer}</p>
-//         <p> ${player.strTeam}</p>
-//         <p> ${player.strPosition}</p>
-//         <p> ${player.strSeason}</p>
-
-        
-//     `;
-//     })
-// }
-
-
-
 function show_details(id) {
     fetch(`https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${id}`)
     .then(res => res.json())
@@ -149,7 +127,6 @@ function show_details(id) {
 
         modalTitle.textContent = player.strPlayer;
         modalBody.innerHTML = `
-            <p>Sport: ${player.strPlayer}</p>
             <p>Sport: ${player.strNationality}</p>
             <p>Player: ${player.strSport}</p>
             <p>Team: ${player.strTeam}</p>
@@ -159,6 +136,8 @@ function show_details(id) {
     console.log(data.players);
     })
     .catch(err => {
-        console.error("There might be an error with show_details", err);
-    });
+        alert(`error with show details${err}`)
+    })
 }
+
+
